@@ -1,0 +1,40 @@
+/* Custom styles to integrate the fonts */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #FFF8F0; /* A warm, creamy background */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Style for the hero section background image */
+.hero-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1540202309592-7b17d2a93358?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Optional: Add styles for the prose class used in recipe pages for better readability */
+.prose {
+    color: #374151; /* text-gray-700 */
+}
+
+.prose h2 {
+    color: #1f2937; /* text-gray-800 */
+    border-bottom: 2px solid #e5e7eb; /* border-gray-200 */
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+}
+
+.prose h3 {
+     color: #1f2937; /* text-gray-800 */
+}
+
+.prose ul, .prose ol {
+    padding-left: 1.5rem;
+}
+
+.prose li {
+    margin-bottom: 0.5em;
+}
