@@ -1,40 +1,342 @@
-/* Custom styles to integrate the fonts */
+/* ==========================================================================
+   1. Global Styles & Typography
+   ========================================================================== */
+
+/* * Using CSS variables (custom properties) for colors and fonts 
+ * makes it easier to maintain and update styles consistently.
+ */
+:root {
+    --primary-font: 'Inter', 'Poppins', sans-serif;
+    --heading-font: 'Playfair Display', serif;
+    --background-warm: #e1edf3;
+    --text-dark: #1f2937; /* text-gray-800 */
+    --text-medium: #374151; /* text-gray-700 */
+    --text-light: #4b5563; /* text-gray-600 */
+    --brand-red: #b91c1c; /* red-700 */
+    --brand-red-dark: #991b1b; /* red-800 */
+    --brand-red-darkest: #7f1d1d; /* red-900 */
+    --brand-red-light: #f87171; /* red-400 */
+    --background-light-gray: #f9fafb; /* bg-gray-50 */
+    --border-gray: #e5e7eb; /* border-gray-200 */
+    --white: #ffffff;
+    --black-alpha-40: rgba(0, 0, 0, 0.4);
+    --black-alpha-50: rgba(0, 0, 0, 0.5);
+}
+
+/* * I've merged the two 'body' rules you had into one.
+ * It's best practice to define a selector only once.
+ */
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: #FFF8F0; /* A warm, creamy background */
+    font-family: var(--primary-font);
+    background-color: var(--background-warm);
+    color: var(--text-dark);
+    margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--heading-font);
 }
 
-/* Style for the hero section background image */
-.hero-bg {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1540202309592-7b17d2a93358?q=80&w=2070&auto=format&fit=crop');
-    background-size: cover;
-    background-position: center;
+.container {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 }
 
-/* Optional: Add styles for the prose class used in recipe pages for better readability */
+/* ==========================================================================
+   2. Header and Navigation
+   ========================================================================== */
+
+.main-header {
+    background-color: rgba(20, 16, 16, 0.8);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--brand-red-dark);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+}
+
+.nav-links a {
+    color: var(--text-medium);
+    text-decoration: none;
+    margin-left: 2rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: var(--brand-red);
+}
+
+.mobile-menu-button {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   3. Hero Section
+   ========================================================================== */
+
+.hero-section {
+    /* Merged the two hero background styles into one for clarity */
+    background: linear-gradient(var(--rgba-40), var(--black-alpha-40)), url('https://images.pexels.com/photos/2474689/pexels-photo-2474689.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
+    color: var(--white);
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+}
+
+.button-primary {
+    background-color: var(--brand-red);
+    color: var(--white);
+    font-weight: 700;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+}
+
+.button-primary:hover {
+    background-color: var(--brand-red-dark);
+    transform: scale(1.05);
+}
+
+/* ==========================================================================
+   4. Recipes Section
+   ========================================================================== */
+
+.recipes-section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background-color: var(--background-light-gray);
+}
+
+.section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.recipe-card {
+    background-color: var(--white);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.recipe-card:hover {
+    transform: translateY(-0.5rem);
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 14rem;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.card-content p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.recipe-link {
+    font-weight: 600;
+    color: var(--brand-red);
+    text-decoration: none;
+}
+
+.recipe-link:hover {
+    color: var(--brand-red-darkest);
+}
+
+/* ==========================================================================
+   5. About Section
+   ========================================================================== */
+
+.about-section {
+    background-color: var(--white);
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.about-image,
+.about-text {
+    width: 50%;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.about-text h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.about-text p {
+    color: var(--text-light);
+    line-height: 1.75;
+}
+
+/* ==========================================================================
+   6. Prose Styles (for Recipe Detail Pages)
+   ========================================================================== */
+
 .prose {
-    color: #374151; /* text-gray-700 */
+    color: var(--text-medium);
 }
 
 .prose h2 {
-    color: #1f2937; /* text-gray-800 */
-    border-bottom: 2px solid #e5e7eb; /* border-gray-200 */
+    color: var(--text-dark);
+    border-bottom: 2px solid var(--border-gray);
     padding-bottom: 0.5em;
     margin-bottom: 1em;
 }
 
 .prose h3 {
-     color: #1f2937; /* text-gray-800 */
+    color: var(--text-dark);
 }
 
-.prose ul, .prose ol {
+.prose ul,
+.prose ol {
     padding-left: 1.5rem;
 }
 
 .prose li {
     margin-bottom: 0.5em;
+}
+
+/* ==========================================================================
+   7. Footer
+   ========================================================================== */
+
+.main-footer-bottom {
+    background-color: var(--text-dark);
+    color: var(--white);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    text-align: center;
+}
+
+.social-links {
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: var(--white);
+    text-decoration: none;
+    margin: 0 0.75rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.social-links a:hover {
+    color: var(--brand-red-light);
+}
+
+/* ==========================================================================
+   8. Responsive Design
+   ========================================================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .recipe-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .mobile-menu-button {
+        display: block;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .recipe-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+
+    .about-image,
+    .about-text {
+        width: 100%;
+    }
 }
