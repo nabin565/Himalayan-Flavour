@@ -25,3 +25,30 @@
 .prose li {
     margin-bottom: 0.5em;
 }
+
+/* ==========================================================================
+   7. Footer
+   ========================================================================== */
+
+.main-footer-bottom {
+    background-color: var(--text-dark);
+    color: var(--white);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    text-align: center;
+}
+
+.social-links {
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: var(--white);
+    text-decoration: none;
+    margin: 0 0.75rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.social-links a:hover {
+    color: var(--brand-red-light);
+}
