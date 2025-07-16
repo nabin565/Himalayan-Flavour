@@ -31,7 +31,7 @@
    ========================================================================== */
 
 .main-footer-bottom {
-    background-color: var(--text-dark);
+    background-color: var(--border-gray);
     color: var(--white);
     padding-top: 2rem;
     padding-bottom: 2rem;
