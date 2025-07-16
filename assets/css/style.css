@@ -100,11 +100,10 @@ h6 {
 /* ==========================================================================
    3. Hero Section
    ========================================================================== */
-
 .hero-section {
     /* Merged the two hero background styles into one for clarity */
-    background: linear-gradient(var(--brand-red-darkest-rgba-40), var(--black-alpha-40)), url('https://images.pexels.com/photos/2474689/pexels-photo-2474689.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
-    color: var(--text-dark);
+    background: linear-gradient(var(--brand-red-darkest-rgba-40), var(--black-alpha-40)), url(/assets/img/ack\ ai.jpg);
+    color: var(--border-gray);
     height: 80vh;
     display: flex;
     align-items: center;
